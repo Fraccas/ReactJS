@@ -24,16 +24,53 @@ class App extends Component {
 
         this.state = {
             name: '',
-            text: ''
+            text: '',
+            lastText: '', // prevent double post
+            submitted: ''
         };
     }
 
+    // #region Event Handle Functions
+    handleNameChange = name => this.setState({name});
+    handleTextChange = text => this.setState({text});
+    
+    handleClick = (event) => { 
+        this.setState({submitted: true}); // added to refresh render
+        if (this.state.name.length > 1 && this.state.text.length > 1) {
+            if (this.state.text !== this.state.lastText) { // double post
+                let nComment = {
+                    name: this.state.name,
+                    text: this.state.text,
+                    date: date()
+                }
+                CommentList.unshift(nComment);
+
+                //prevent double post
+                this.setState({lastText : this.state.text});
+            } else alert("Please enter a new message!");
+        } else alert("Please enter a valid name/comment!")
+        
+    }
+    // #endregion
 
     render() {
         return (
             <React.Fragment>
-                <div className="header-section">
-                    <h1 className="bg-primary text-white">Welcome to Chirper!</h1>
+                <h1 className="bg-primary text-white p-2">Welcome to Chirper!</h1>
+                <div className="input-section bg-grey p-1 ml-2"> 
+                    <input
+                        id="nInput"
+                        placeholder={'enter name'}
+                        onChange={(event) => this.handleNameChange(event.target.value)}
+                    />
+                    <input
+                        id="tInput"
+                        placeholder={'enter comment'}
+                        onChange={(event) => this.handleTextChange(event.target.value)}
+                   />
+                    <button onClick={(event) => this.handleClick(event)}>
+                        Submit
+                    </button>
                 </div>
 
                 

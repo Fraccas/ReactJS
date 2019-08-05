@@ -3,12 +3,12 @@ import UserInfo from './UserInfo';
 
 const Comment = (props) => {
     return (
-        <div className="Comment">
+        <div className="Comment bg-dark text-white p-2 border  border-primary">
             <UserInfo user={props.author} />
             <div className="Comment-text">
                 {props.text}
             </div>
-            <div className="Comment-date bg-warning">
+            <div className="Comment-date">
                 {props.date}
             </div>
         </div>
