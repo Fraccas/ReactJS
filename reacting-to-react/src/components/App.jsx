@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 
 // const App = (props) => {
 //     return <h1>Hello, {props.name}!</h1>;
-// }
+// } 
 
-class App extends Component {
+class App extends Component { 
     constructor(props) {
         super(props);
 
@@ -14,11 +14,10 @@ class App extends Component {
         };
     }
     
-    handleInputChange = (name) => {
-        this.setState({name});
-    }
+    handleInputChange = name => this.setState({name});
 
-    handleClick = (loaded) => {
+
+    handleClick = loaded => {
         this.setState({
             hasLoaded: loaded
         });
@@ -40,9 +39,7 @@ class App extends Component {
                         placeholder={'enter name'}
                         onChange={(event) => this.handleInputChange(event.target.value)}
                     /><br></br>
-                    <button
-                        onClick={(event) => this.handleClick(false)}
-                    >
+                    <button onClick={(event) => this.handleClick(false)}>
                         CheckLoaded
                     </button>
                 </React.Fragment>
@@ -51,9 +48,7 @@ class App extends Component {
             return (
                 <React.Fragment>
                     <h1>Loading...</h1>
-                    <button
-                        onClick={(event) => this.handleClick(true)}
-                    >
+                    <button onClick={(event) => this.handleClick(true)}>
                         CheckLoaded
                     </button>
                 </React.Fragment>
