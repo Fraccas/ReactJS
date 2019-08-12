@@ -40,7 +40,7 @@ class App extends Component {
             return (
                 <>
                     <div className="bg-dark">
-                        <h1 className="bg-primary text-white text-center m-0">Welcome to MovieDB</h1>
+                        <button onClick={() => { this.ToHome() }} id="homeB" type="button" className="btn btn-primary btn-block btn-lg p-3"><h1>Welcome to MovieDB</h1></button>
                         <div className="card-holder w-100 px-3"> 
                         {this.DisplayElements()}
                         <button onClick={() => { this.ToHome() }} id="homeB" type="button" className="btn btn-primary btn-block btn-lg p-3">Back to Home</button>
@@ -52,9 +52,11 @@ class App extends Component {
             return (
                 <>
                     <div className="bgi"></div>
-                    <button onClick={() => { this.LoadFilms() }} id="filmB" type="button" className="btn btn-primary btn-lg btn-block m-3">Load Films</button>
-                    <button onClick={() => { this.LoadPeople() }} id="peopleB" type="button" className="btn btn-dark btn-lg btn-block m-3">Load People</button>
-                </>
+                    <div class="m-3">
+                        <button onClick={() => { this.LoadFilms() }} id="filmB" type="button" className="btn btn-primary btn-lg btn-block p-3">Load Films</button>
+                        <button onClick={() => { this.LoadPeople() }} id="peopleB" type="button" className="btn btn-dark btn-lg btn-block p-3">Load People</button>
+                    </div>
+                   </>
               );
         }
     }
