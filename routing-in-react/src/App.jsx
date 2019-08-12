@@ -9,6 +9,7 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
+                    <Link className="btn btn-primary btn-lg btn-block p-4" to="/"><h1>Routing in React</h1></Link>
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/films" component={Films}/>

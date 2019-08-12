@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <div className="bg-light">
                 <div className="bgi"></div>
-                    <div class="m-3">
+                    <div className="m-3">
                         <Link className="btn btn-primary btn-lg btn-block p-3" to="/films">View Films</Link>
                         <Link className="btn btn-dark btn-lg btn-block p-3" to="/people">View People</Link>     
                     </div>
