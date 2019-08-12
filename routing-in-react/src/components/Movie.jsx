@@ -14,11 +14,27 @@ const Movie = (props) => {
             <div className="movie-director cart-text">
                 <h2>Directed by {props.movie.director}</h2>
             </div>
-            <Link className="btn btn-primary btn-lg p-2 text-center center rounded-5" to={path}>
-                View More
-            </Link>
+            {showLink()}
+            
         </div>
     );
+
+    // show Movie or back to Films
+    function showLink() {
+        if (!window.location.href.includes(path)) { // don't show link if we are already on the page
+            return (
+                <Link className="btn btn-primary btn-lg p-2 text-center center rounded-5" to={path}>
+                    View More
+                </Link>
+            );
+        } else {
+            return (
+                <Link className="btn btn-primary btn-lg p-2 text-center center rounded-5" to="/films">
+                    Back to Films
+                </Link>
+            );
+        }
+    }
 }
 
 

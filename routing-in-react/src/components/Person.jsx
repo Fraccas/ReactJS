@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 
 const Person = (props) => {
-    let link='https://ghibliapi.herokuapp.com/people/' + props.person.id;
+    console.log('here');
+    let path = "/people/" + props.person.id;
     return (
         <div className="person card-body bg-lightgrey m-2 rounded-5">
             <div className="person-name card-title">
@@ -13,10 +15,27 @@ const Person = (props) => {
             <div className="person-gender card-text">
                 {props.person.gender}
             </div>
-            
-            <a href={link} className="btn btn-primary btn-lg my-1" role="button" rel="noopener noreferrer" target="_blank">More Info</a>
+        
+            {showLink()}
         </div>
     );
+
+        // show Person or back to People
+        function showLink() {
+            if (!window.location.href.includes(path)) { // don't show link if we are already on the page
+                return (
+                    <Link className="btn btn-primary btn-lg p-2 text-center center rounded-5" to={path}>
+                        View More
+                    </Link>
+                );
+            } else {
+                return (
+                    <Link className="btn btn-primary btn-lg p-2 text-center center rounded-5" to="/people">
+                        Back to People
+                    </Link>
+                );
+            }
+        }
 }
 
 export default Person;

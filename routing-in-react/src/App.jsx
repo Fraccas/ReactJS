@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Films from './components/Films';
 import People from './components/People';
-import Film from './components/Film';
+import ShowFilm from './components/ShowFilm';
+import ShowPerson from './components/ShowPerson';
 
 class App extends Component {
     render() {
@@ -15,7 +16,8 @@ class App extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/films" component={Films}/>
                         <Route exact path="/people" component={People}/>
-                        <Route path="/films/:id" component={Film}/> 
+                        <Route path="/films/:id" component={ShowFilm}/> 
+                        <Route path="/people/:id" component={ShowPerson}/>
                     </Switch>
                 </Fragment>
             </Router>

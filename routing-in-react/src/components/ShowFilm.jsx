@@ -30,20 +30,6 @@ class Films extends Component {
             </div> 
         );
     }
-
-    DisplayElements() {
-        if (this.state.films) {
-            return (
-                this.state.films.map((value, index) => {
-                    return <Card key={value.id} movie={value}></Card>
-                })
-            );
-        } else {
-            return (
-                <div>No data to display!</div>
-            );
-        }
-    }
 }
 
 export default Films;
