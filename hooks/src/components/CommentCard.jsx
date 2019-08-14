@@ -5,10 +5,10 @@ const CommentCard = (props) => {
     return (
         <div className="comment card-body bg-lightgrey m-2 rounded-5 border-bottom border-dark">
             <div className="comment-name card-title">
-                <h1>{props.commentData.name}</h1>
+                <h3>{props.commentData.email}:</h3>
             </div>
             <div className="comment-content card-text">
-                {props.commentData.body}
+                <h2>{props.commentData.body}</h2>
             </div>
         </div>
     );
